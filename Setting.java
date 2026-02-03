@@ -11,6 +11,7 @@ public enum Setting {
 		this._temp = temp;
 	}
 	
+	@Override
 	public String toString() {
 		return _temp;
 	}
