@@ -87,6 +87,7 @@ public class Burner {
 				break;
 			}
 		}
+	}
 		
 	
 	void display() {
