@@ -1,7 +1,5 @@
 import java.util.ArrayList;
 
-import Burner.Temperature;
-
 /**
  * Stove class. 
  *  
@@ -35,9 +33,8 @@ public class Stove {
 		boolean tempWarning = false;
 		for (int i = 0; i < burners.size(); i++) {
 			burners.get(i).display();
-			if (burners.get(i).getTemperature() == Temperature.BLAZING) {
+			if (burners.get(i).getTemperature() == Burner.Temperature.BLAZING) {
 				tempWarning = true;
-				
 			}
 		}
 		if (tempWarning) {
