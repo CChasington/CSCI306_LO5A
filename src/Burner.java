@@ -22,4 +22,36 @@ public class Burner {
 		this._myTemperature = Temperature.COLD;
 		this._mySetting = Setting.OFF;
 	}
+	
+	void plusButton() {
+		switch (_myTemperature) {
+		case COLD:
+			_myTemperature = Temperature.WARM;
+			break;
+		case WARM:
+			_myTemperature = Temperature.HOT;
+			break;
+		case HOT:
+			_myTemperature = Temperature.BLAZING;
+			break;
+		default:
+			break;
+		}
+	}
+	
+	void minusButton() {
+		switch (_myTemperature) {
+		case BLAZING:
+			_myTemperature = Temperature.HOT;
+			break;
+		case HOT:
+			_myTemperature = Temperature.WARM;
+			break;
+		case WARM:
+			_myTemperature = Temperature.COLD;
+			break;
+		default:
+			break;
+		}
+	}
 }
