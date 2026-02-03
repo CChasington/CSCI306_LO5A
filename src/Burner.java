@@ -1,4 +1,5 @@
 /*
+ * Burner Class
  * Authors: Jiah Folvarko and Chase Beckley
  */
 
