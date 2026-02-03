@@ -72,18 +72,34 @@ public class Burner {
 			_timer--;
 			switch (_mySetting) {
 			case OFF:
-				lowerTemp();
+				if (_myTemperature == Temperature.WARM) lowerTemp();
+				else if (_myTemperature == Temperature.HOT || _myTemperature == Temperature.BLAZING) {
+					lowerTemp();
+					_timer = TIME_DURATION;
+				}
 				break;
 			case LOW:
 				if (_myTemperature == Temperature.COLD) raiseTemp();
-				if (_myTemperature == Temperature.HOT || _myTemperature == Temperature.BLAZING) lowerTemp();
+				else if (_myTemperature == Temperature.HOT) lowerTemp();
+				else if (_myTemperature == Temperature.BLAZING) {
+					lowerTemp();
+					_timer = TIME_DURATION;
+				}
 				break;
 			case MEDIUM:
-				if (_myTemperature == Temperature.COLD || _myTemperature == Temperature.WARM) raiseTemp();
-				if (_myTemperature == Temperature.BLAZING) lowerTemp();
+				if (_myTemperature == Temperature.WARM) raiseTemp();
+				else if (_myTemperature == Temperature.BLAZING) lowerTemp();
+				else if (_myTemperature == Temperature.COLD) {
+					raiseTemp();
+					_timer = TIME_DURATION;
+				}
 				break;
 			case HIGH:
-				raiseTemp();
+				if (_myTemperature == Temperature.HOT) raiseTemp();
+				else if (_myTemperature == Temperature.COLD || _myTemperature == Temperature.WARM) {
+					raiseTemp();
+					_timer = TIME_DURATION;
+				}
 				break;
 			}
 		}
@@ -116,6 +132,7 @@ public class Burner {
 		switch (_myTemperature) {
 		case COLD:
 			_myTemperature = Temperature.WARM;
+			
 			break;
 		case WARM:
 			_myTemperature = Temperature.HOT;
