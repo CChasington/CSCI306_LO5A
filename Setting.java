@@ -10,4 +10,8 @@ public enum Setting {
 	Setting(String temp) {
 		this._temp = temp;
 	}
+	
+	public String toString() {
+		return _temp;
+	}
 }
