@@ -7,12 +7,12 @@ public enum Setting {
 	
 	private final String _temp;
 	
-	Setting(String temp) {
+	Setting(String temp) { // constructor 
 		this._temp = temp;
 	}
 	
 	@Override
-	public String toString() {
+	public String toString() { // returns the temp setting as a string
 		return _temp;
 	}
 }
