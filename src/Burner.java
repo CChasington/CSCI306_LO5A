@@ -1,4 +1,6 @@
-//Author Jiah and Chase
+/*
+ * Authors: Jiah Folvarko and Chase Beckley
+ */
 
 public class Burner {
 	
@@ -22,7 +24,9 @@ public class Burner {
 		this._myTemperature = Temperature.COLD;
 		this._mySetting = Setting.OFF;
 	}
-	
+	/*
+	 * Updates the setting as if plus button was pressed
+	 */
 	void plusButton() {
 		switch (_mySetting) {
 		case OFF:
@@ -41,7 +45,9 @@ public class Burner {
 			break;
 		}
 	}
-	
+	/*
+	 * Updates the setting as if minus button was pressed
+	 */
 	void minusButton() {
 		switch (_mySetting) {
 		case HIGH:
@@ -61,6 +67,9 @@ public class Burner {
 		}
 	}
 	
+	/*
+	 * Update temperature, using timer
+	 */
 	void updateTemperature() {
 		switch (_timer) {
 		case 0:
@@ -105,7 +114,9 @@ public class Burner {
 		}
 	}
 		
-	
+	/*
+	 * Displays warnings what setting level and what status the burner is at
+	 */
 	void display() {
 		System.out.print("[" + _mySetting.toString() + "]");
 		System.out.print(".....");
