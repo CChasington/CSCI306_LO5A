@@ -2,7 +2,7 @@
 
 public class Burner {
 	
-	private enum Temperature {
+	public enum Temperature {
 		BLAZING,
 		HOT,
 		WARM,
@@ -76,6 +76,25 @@ public class Burner {
 			}
 		}
 		
-		
+	
+	void display() {
+		System.out.print(_myTemperature.toString());
+		System.out.print(".....");
+		switch (_myTemperature) {
+		case COLD:
+			System.out.println("cooool");
+			break;
+		case WARM:
+			System.out.println("warm");
+			break;
+		case HOT:
+			System.out.println("CAREFUL");
+			break;
+		case BLAZING:
+			System.out.println("VERY HOT! DON'T TOUCH");
+			break;
+		default:
+			break;
+		}
 	}
 }
