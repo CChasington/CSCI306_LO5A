@@ -24,15 +24,18 @@ public class Burner {
 	}
 	
 	void plusButton() {
-		switch (_myTemperature) {
-		case COLD:
-			_myTemperature = Temperature.WARM;
+		switch (_mySetting) {
+		case OFF:
+			_mySetting = Setting.LOW;
+			_timer = TIME_DURATION;
 			break;
-		case WARM:
-			_myTemperature = Temperature.HOT;
+		case LOW:
+			_mySetting = Setting.MEDIUM;
+			_timer = TIME_DURATION;
 			break;
-		case HOT:
-			_myTemperature = Temperature.BLAZING;
+		case MEDIUM:
+			_mySetting = Setting.HIGH;
+			_timer = TIME_DURATION;
 			break;
 		default:
 			break;
@@ -40,18 +43,39 @@ public class Burner {
 	}
 	
 	void minusButton() {
-		switch (_myTemperature) {
-		case BLAZING:
-			_myTemperature = Temperature.HOT;
+		switch (_mySetting) {
+		case HIGH:
+			_mySetting = Setting.MEDIUM;
+			_timer = TIME_DURATION;
 			break;
-		case HOT:
-			_myTemperature = Temperature.WARM;
+		case MEDIUM:
+			_mySetting = Setting.LOW;
+			_timer = TIME_DURATION;
 			break;
-		case WARM:
-			_myTemperature = Temperature.COLD;
+		case LOW:
+			_mySetting = Setting.OFF;
+			_timer = TIME_DURATION;
 			break;
 		default:
 			break;
 		}
+	}
+	
+	void updateTemperature() {
+		switch (_timer) {
+		case 0:
+			return;
+		case 2:
+			_timer--;
+			return;
+		case 1:
+			_timer--;
+			switch (_mySetting) {
+			case OFF:
+				minusButton();
+			}
+		}
+		
+		
 	}
 }
