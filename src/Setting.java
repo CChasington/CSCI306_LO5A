@@ -1,4 +1,11 @@
 
+/* 
+ * Class: Setting
+ * Store: its local setting as a String (_temp)
+ * Authors: Chase Beckley & Jiah Folvarko
+ * Date: Feb 2 2026
+ */
+
 public enum Setting {
 	OFF("---"),
 	LOW("--+"),

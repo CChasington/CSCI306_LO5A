@@ -1,6 +1,8 @@
-/*
- * Burner Class
- * Authors: Jiah Folvarko and Chase Beckley
+/* 
+ * Class: Burner
+ * Store: its local temperature, settings, and internal timer
+ * Authors: Chase Beckley & Jiah Folvarko
+ * Date: Feb 2 2026
  */
 
 public class Burner {
