@@ -72,7 +72,19 @@ public class Burner {
 			_timer--;
 			switch (_mySetting) {
 			case OFF:
-				minusButton();
+				lowerTemp();
+				break;
+			case LOW:
+				if (_myTemperature == Temperature.COLD) raiseTemp();
+				if (_myTemperature == Temperature.HOT || _myTemperature == Temperature.BLAZING) lowerTemp();
+				break;
+			case MEDIUM:
+				if (_myTemperature == Temperature.COLD || _myTemperature == Temperature.WARM) raiseTemp();
+				if (_myTemperature == Temperature.BLAZING) lowerTemp();
+				break;
+			case HIGH:
+				raiseTemp();
+				break;
 			}
 		}
 		
@@ -92,6 +104,39 @@ public class Burner {
 			break;
 		case BLAZING:
 			System.out.println("VERY HOT! DON'T TOUCH");
+			break;
+		default:
+			break;
+		}
+	}
+	
+	
+	private void raiseTemp() {
+		switch (_myTemperature) {
+		case COLD:
+			_myTemperature = Temperature.WARM;
+			break;
+		case WARM:
+			_myTemperature = Temperature.HOT;
+			break;
+		case HOT:
+			_myTemperature = Temperature.BLAZING;
+			break;
+		default:
+			break;
+		}
+	}
+	
+	private void lowerTemp() {
+		switch (_myTemperature) {
+		case BLAZING:
+			_myTemperature = Temperature.HOT;
+			break;
+		case HOT:
+			_myTemperature = Temperature.WARM;
+			break;
+		case WARM:
+			_myTemperature = Temperature.COLD;
 			break;
 		default:
 			break;
