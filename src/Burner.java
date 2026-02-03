@@ -91,7 +91,7 @@ public class Burner {
 		
 	
 	void display() {
-		System.out.print(_myTemperature.toString());
+		System.out.print("[" + _mySetting.toString() + "]");
 		System.out.print(".....");
 		switch (_myTemperature) {
 		case COLD:
